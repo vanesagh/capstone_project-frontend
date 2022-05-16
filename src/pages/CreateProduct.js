@@ -18,20 +18,18 @@ const {productID} = params;
 
 const [newProductState,setNewProductState ] = useState(newProduct);
 
-const fetchingProductByID = async ()=>{
-  const res = await getProductByID(productID);
-  setNewProductState(res);
-};
+
 
 useEffect(()=>{
+  const fetchingPostByID = async () =>{
+    const res = await getProductByID(productID);
+    setNewProductState(res);
+  };
   if(productID){
-    fetchingProductByID();
+    fetchingPostByID();
     console.log(productID);
-  } else {
-    setNewProductState(newProduct);
-
-  }
-}, []);
+  } 
+}, [productID]);
 
   const handleOnChange = (event) => {
     const name = event.target.name;

@@ -1,6 +1,6 @@
 import "../styles/checkout.css"
 import {createOrder} from "../api/apiOrder";
-import { useEffect, useState } from "react";
+import {useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 export const CheckOut = ({itemsList,setItemsList, handleRemoveItem}) =>{
@@ -46,10 +46,10 @@ export const CheckOut = ({itemsList,setItemsList, handleRemoveItem}) =>{
         
         event.preventDefault();
         const productsIDList= itemsList.map(({_id})=>_id);
-        setNewOrderState({...newOrderState,["items"]:productsIDList});
+        setNewOrderState({...newOrderState,"items":productsIDList});
         console.log(productsIDList);
         console.log(newOrderState);
-        const savedOrder= await createOrder(newOrderState);
+        await createOrder(newOrderState);
         //setNewOrderState([]);
         itemsList.length=0;
         
