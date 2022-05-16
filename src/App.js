@@ -27,7 +27,7 @@ function App() {
   ,[]);
 
   const handleOnSave =async (product) =>{
-    const res =await createProduct(product);
+    await createProduct(product);
     setAllProducts([...allProducts,product]);
     navigate("/admin",{replace:true})
   };
@@ -42,7 +42,7 @@ function App() {
 
 
   const onDelete = async (id) =>{
-    const res = await deleteProduct(id);
+    await deleteProduct(id);
     const copyOfProducts = allProducts.filter((item)=> item._id !== id);
     setAllProducts(copyOfProducts);
     navigate("/admin",{replace:true});   
