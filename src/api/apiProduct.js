@@ -1,4 +1,4 @@
-const URL_SERVER = "http://localhost:8000/admin/";
+const URL_SERVER = process.env.REACT_APP_API_URL+"admin/";
 export const createProduct = async (post) => {
     try {
       const res = await fetch(URL_SERVER, {
