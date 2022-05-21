@@ -1,4 +1,4 @@
-const URL_SERVER = process.env.REACT_APP_API_URL+"admin/";
+const URL_SERVER = `${process.env.REACT_APP_API_URL}admin`;
 export const createProduct = async (post) => {
     try {
       const res = await fetch(URL_SERVER, {
@@ -23,7 +23,7 @@ export const getAllProducts = async () => {
 
 export const getProductByID = async (id) =>{
   try {
-    const res = await fetch(URL_SERVER + "product/" +id );
+    const res = await fetch(URL_SERVER + "/product/" +id );
     return await res.json();
     
   } catch (error) {
@@ -36,7 +36,7 @@ export const getProductByID = async (id) =>{
 export const deleteProduct = async (id)=>{
   console.log(id);
   try {
-    const res = await fetch(URL_SERVER + "product/"+ id, {
+    const res = await fetch(URL_SERVER + "/product/"+ id, {
       method: "DELETE",
       headers: {"Content-type": "application/json"},
     });
@@ -50,7 +50,7 @@ export const deleteProduct = async (id)=>{
 export const updateProduct = async (id, product)=>{
   try {
     
-    const res = await fetch(URL_SERVER + "product/"+ id,{
+    const res = await fetch(URL_SERVER + "/product/"+ id,{
       method: "PUT",
       headers: { "Content-type": "application/json" },
       body: JSON.stringify(product),
